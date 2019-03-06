@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Sports.Services;
 
 namespace Sports
 {
@@ -15,6 +16,7 @@ namespace Sports
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<ISportsData, InMemorySportsData>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

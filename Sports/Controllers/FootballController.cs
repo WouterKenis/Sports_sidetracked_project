@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Sports.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,19 @@ namespace Sports.Controllers
 {
     public class FootballController : Controller
     {
+        private ISportsData _sportsData;
+
+        public FootballController(ISportsData sportsData)
+        {
+            _sportsData = sportsData;
+        }
+
         public IActionResult Index()
         {
-            return View();
+
+            var players = _sportsData.GetAllFootballPlayers();
+
+            return View(players);
         }
     }
 }

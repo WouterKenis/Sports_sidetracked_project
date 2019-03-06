@@ -1,1 +1,14 @@
-﻿<h1>Football</h1>
+﻿@model IEnumerable<Sports.Models.FootballPlayer>
+
+<h1>Football</h1>
+
+<table>
+    @foreach (var footballPlayer in Model)
+    {
+    <tr>
+        <td>Name: @footballPlayer.Name</td>
+        <td>Position: @footballPlayer.Position</td>
+        <td>Jersey Number: @footballPlayer.Number</td>
+    </tr>
+    }
+</table>
